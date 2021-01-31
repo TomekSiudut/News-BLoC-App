@@ -1,5 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:eva_icons_flutter/icon_data.dart';
+import "./tabs/home_screen.dart";
+import "./tabs/sources_screen.dart";
+import "./tabs/search_screen.dart";
 import "package:flutter/material.dart";
 import "../bloc/bottom_navbar_bloc.dart";
 import "../styles/theme.dart";
@@ -36,11 +38,11 @@ class _MainScreenState extends State<MainScreen> {
           builder: (BuildContext context, snapshot) {
             switch (snapshot.data) {
               case NavBarItem.HOME:
-                return Container();
+                return HomeScreen();
               case NavBarItem.SOURCES:
-                return Container();
+                return SourcesScreen();
               case NavBarItem.SEARCH:
-                return Container();
+                return SearchScreen();
                 break;
               default:
             }
@@ -62,6 +64,7 @@ class _MainScreenState extends State<MainScreen> {
                       iconSize: 20.0,
                       unselectedItemColor: Colors.grey,
                       unselectedFontSize: 9.5,
+                      currentIndex: snapshot.data.index,
                       selectedFontSize: 9.5,
                       type: BottomNavigationBarType.fixed,
                       fixedColor: AppColors.mainColor,
