@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "../../widgets/headline_slider.dart";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -9,7 +10,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text("Home"));
+    return ListView(
+      children: [HeadlineSlider()],
+    );
   }
 }

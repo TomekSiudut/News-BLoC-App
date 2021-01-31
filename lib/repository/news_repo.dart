@@ -20,7 +20,7 @@ class NewsRepository {
       return SourceResponse.fromJson(response.data);
     } catch (error) {
       print("Something went wrong.");
-      return SourceResponse.withError(error);
+      return SourceResponse.withError("${error.data}");
     }
   }
 
@@ -29,10 +29,11 @@ class NewsRepository {
 
     try {
       Response response = await _dio.get(getTopHeadLinesUrl, queryParameters: params);
+      print(response.data);
       return ArticleResponse.fromJson(response.data);
     } catch (error) {
-      print("Something went wrong.");
-      return ArticleResponse.withError(error);
+      print(error);
+      return ArticleResponse.withError("error");
     }
   }
 

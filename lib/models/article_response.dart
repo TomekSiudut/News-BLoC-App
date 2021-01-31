@@ -7,7 +7,7 @@ class ArticleResponse {
   ArticleResponse({this.articles, this.error});
 
   ArticleResponse.fromJson(Map<String, dynamic> json)
-      : articles = (json['articles'] as List).map((i) => new Article.fromJson(json)).toList(),
+      : articles = (json['articles'] as List).map((i) => new Article.fromJson(i)).toList(),
         error = "";
 
   ArticleResponse.withError(String errorValue)
